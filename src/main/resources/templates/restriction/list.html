@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Partner Dictionary v0.3</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="jumbotron">
+        <div th:if="${not #lists.isEmpty(restrictions)}">
+            <h2>Restriction List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Restriction Id</th>
+                    <th colspan="4">Restriction Name</th>
+                </tr>
+                <tr th:each="restriction : ${restrictions}">
+                    <td th:text="${restriction.restrictionId}"></td>
+                    <td th:text="${restriction.restrictionName}"></td>
+                    <td><a th:href="${'/restriction/display/' + restriction.restrictionId}">View</a> </td>
+                    <td><a th:href="${'/restriction/edit/' + restriction.restrictionId}">Edit</a> </td>
+                    <td><a th:href="${'/restriction/remove/' + restriction.restrictionId}">Delete</a> </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="/restriction/add">Add Restriction</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

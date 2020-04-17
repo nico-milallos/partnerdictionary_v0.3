@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Apr 06 09:57:25 UTC 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0171-4eec-5dab-00001acff868 
+on database directory memory:/usr/local/google/home/reyvictorio/opt/partnerdictionary_v0.3/49db0456-ea6a-47f6-90b5-c035d162a831 with class loader sun.misc.Launcher$AppClassLoader@214c265e 
+Loaded from file:/usr/local/google/home/reyvictorio/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Google Inc.
+java.runtime.version=1.8.0_181-google-v7-272050736-272050736
+user.dir=/usr/local/google/home/reyvictorio/opt/partnerdictionary_v0.3
+os.name=Linux
+os.arch=amd64
+os.version=5.2.17-1rodete3-amd64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Partner Dictionary v0.3</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="jumbotron">
+        <div th:if="${not #lists.isEmpty(restrictionTypes)}">
+            <h2>Restriction Type List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Restriction Id</th>
+                    <th>Restriction Name</th>
+                    <th colspan="4">Restriction Type Name</th>
+                </tr>
+                <tr th:each="restrictionType : ${restrictionTypes}">
+                    <td th:text="${restrictionType.restrictionTypeId}"></td>
+                    <td th:text="${restrictionType.restriction.restrictionName}"></td>
+                    <td th:text="${restrictionType.restrictionTypeName}"></td>
+                    <td><a th:href="${'/restrictiontype/display/' + restrictionType.restrictionTypeId}">View</a> </td>
+                    <td><a th:href="${'/restrictiontype/edit/' + restrictionType.restrictionTypeId}">Edit</a> </td>
+                    <td><a th:href="${'/restrictiontype/remove/' + restrictionType.restrictionTypeId}">Delete</a> </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="/restrictiontype/add">Add Restriction</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Partner Dictionary v0.3</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="jumbotron">
+        <div th:if="${not #lists.isEmpty(partners)}">
+            <h2>Partner List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Partner Id</th>
+                    <th>Partner Code</th>
+                    <th colspan="4">Partner Name</th>
+                </tr>
+                <tr th:each="partner : ${partners}">
+                    <td th:text="${partner.partnerId}"></td>
+                    <td th:text="${partner.partnerCode}"></td>
+                    <td th:text="${partner.partnerName}"></td>
+                    <td><a th:href="${'/partner/display/' + partner.partnerId}">View</a> </td>
+                    <td><a th:href="${'/partner/edit/' + partner.partnerId}">Edit</a> </td>
+                    <td><a th:href="${'/partner/remove/' + partner.partnerId}">Delete</a> </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="/partner/add">Add Partner</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
