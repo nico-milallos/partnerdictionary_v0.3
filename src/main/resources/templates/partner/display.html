@@ -17,33 +17,27 @@
             <div class="col-sm-8">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Partner Id:</label>
-                        <div class="col-sm-8">
-                            <p class="form-control-static" th:text="${partner.partnerId}">Partner Id</p>
-                        </div>
+                        <label class="col-sm-4 control-label">Partner Id:</label>
+                        <label class="form-control-static" th:text="${partner.partnerId}">Partner Id</label>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Partner Code:</label>
-                        <div class="col-sm-8">
-                            <p class="form-control-static" th:text="${partner.partnerCode}">Partner Code</p>
-                        </div>
+                        <label class="col-sm-4 control-label">Partner Code:</label>
+                        <label class="form-control-static" th:text="${partner.partnerCode}">Partner Code</label>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Partner Name:</label>
-                        <div class="col-sm-8">
-                            <p class="form-control-static" th:text="${partner.partnerName}">Partner Name</p>
-                        </div>
+                        <label class="col-sm-4 control-label">Partner Name:</label>
+                        <label class="form-control-static" th:text="${partner.partnerName}">Partner Name</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Partner Type Name:</label>
+                        <label class="form-control-static" th:text="${partner.partnerType.partnerTypeName}">Partner Type Name</label>
                     </div>
                 </form>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3">
-                <a href="/partner/add">Add Partner</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="/partner/list">Back</a>
-            </div>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner/add';">Add</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner/list';">Cancel</button>
         </div>
     </div>
 </div>

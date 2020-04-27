@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class RestrictionTypeController {
-  
+
   @Autowired
   private RestrictionTypeService restrictionTypeService;
   @Autowired
@@ -24,50 +24,50 @@ public class RestrictionTypeController {
   @Autowired
   private RestrictionTypeToRestrictionTypeForm restrictionTypeToRestrictionTypeForm;
 
-  @RequestMapping({"/restrictiontype/list", "/restrictiontype"})
+  @RequestMapping({"/restriction_type/list", "/restriction_type"})
   public String getAllRestrictionTypes(Model model) {
     model.addAttribute("restrictionTypes", restrictionTypeService.getAll());
     model.addAttribute("restrictionTypeActive", "active");
-    return "restrictiontype/list";
+    return "restriction_type/list";
   }
-  
-  @RequestMapping("/restrictiontype/display/{restrictionTypeId}")
+
+  @RequestMapping("/restriction_type/display/{restrictionTypeId}")
   public String getRestrictionType(@PathVariable String restrictionTypeId, Model model) {
     model.addAttribute("restrictionType", restrictionTypeService.getById(Integer.valueOf(restrictionTypeId)));
-    return "restrictiontype/display";
+    return "restriction_type/display";
   }
-  
-  @RequestMapping("restrictiontype/edit/{restrictionTypeId}")
+
+  @RequestMapping("restriction_type/edit/{restrictionTypeId}")
   public String updateRestrictionType(@PathVariable String restrictionTypeId, Model model){
     RestrictionType restrictionType = restrictionTypeService.getById(Integer.valueOf(restrictionTypeId));
     RestrictionTypeForm restrictionTypeForm = restrictionTypeToRestrictionTypeForm.convert(restrictionType);
 
     model.addAttribute("restrictions", restrictionService.getAll());
     model.addAttribute("restrictionTypeForm", restrictionTypeForm);
-    return "restrictiontype/form";
+    return "restriction_type/form";
   }
-  
-  @RequestMapping("/restrictiontype/add")
+
+  @RequestMapping("/restriction_type/add")
   public String addRestrictionType(Model model) {
     model.addAttribute("restrictions", restrictionService.getAll());
     model.addAttribute("restrictionTypeForm", new RestrictionTypeForm());
-    return "restrictiontype/form";
+    return "restriction_type/form";
   }
-  
-  @RequestMapping(value = "/restrictiontype", method = RequestMethod.POST)
+
+  @RequestMapping(value = "/restriction_type", method = RequestMethod.POST)
   public String saveOrUpdateRestrictionType(@Validated RestrictionTypeForm restrictionTypeForm, BindingResult bindingResult) {
     if(bindingResult.hasErrors()){
-      return "restrictiontype/form";
+      return "restriction_type/form";
     }
-  
+
     RestrictionType savedRestrictionType = restrictionTypeService.saveOrUpdateForm(restrictionTypeForm);
-  
-    return "redirect:/restrictiontype/display/" + savedRestrictionType.getRestrictionTypeId();
+
+    return "redirect:/restriction_type/display/" + savedRestrictionType.getRestrictionTypeId();
   }
-  
-  @RequestMapping("/restrictiontype/remove/{restrictionTypeId}")
+
+  @RequestMapping("/restriction_type/remove/{restrictionTypeId}")
   public String deleteRestrictionType(@PathVariable String restrictionTypeId) {
     restrictionTypeService.delete(Integer.valueOf(restrictionTypeId));
-    return "redirect:/restrictiontype/list";
+    return "redirect:/restriction_type/list";
   }
 }

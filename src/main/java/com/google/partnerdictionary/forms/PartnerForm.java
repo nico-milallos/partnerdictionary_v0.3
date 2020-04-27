@@ -1,9 +1,12 @@
 package com.google.partnerdictionary.forms;
 
+import com.google.partnerdictionary.models.PartnerType;
+
 public class PartnerForm {
   private Integer partnerId;
   private String partnerCode;
   private String partnerName;
+  private PartnerType partnerType;
 
   public Integer getPartnerId() {
     return partnerId;
@@ -27,5 +30,13 @@ public class PartnerForm {
 
   public void setPartnerName(String partnerName) {
     this.partnerName = partnerName;
+  }
+
+  public PartnerType getPartnerType() {
+    return partnerType;
+  }
+
+  public void setPartnerType(PartnerType partnerType) {
+    this.partnerType = partnerType;
   }
 }

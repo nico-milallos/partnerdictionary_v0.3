@@ -22,6 +22,10 @@ public class PartnerService implements MainService<Partner, PartnerForm> {
     this.partnerFormToPartner = partnerFormToPartner;
   }
 
+  public List<Partner> findByKeyword(String keyword) {
+    return partnerRepository.findByKeyword(keyword);
+  }
+
   @Override
   public List<Partner> getAll() {
     List<Partner> partners = new ArrayList<>();

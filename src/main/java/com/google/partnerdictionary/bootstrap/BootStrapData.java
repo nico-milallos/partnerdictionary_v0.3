@@ -1,8 +1,11 @@
 package com.google.partnerdictionary.bootstrap;
 
+import com.google.partnerdictionary.models.Partner;
+import com.google.partnerdictionary.models.PartnerType;
 import com.google.partnerdictionary.models.Restriction;
 import com.google.partnerdictionary.models.RestrictionType;
 import com.google.partnerdictionary.repositories.RestrictionRepository;
+import com.google.partnerdictionary.services.PartnerTypeService;
 import com.google.partnerdictionary.services.RestrictionService;
 import com.google.partnerdictionary.services.RestrictionTypeService;
 import java.util.ArrayList;
@@ -13,19 +16,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class BootStrapData implements CommandLineRunner {
 
+  private final PartnerTypeService partnerTypeService;
   private final RestrictionService restrictionService;
   private final RestrictionTypeService restrictionTypeService;
 
   public BootStrapData(
-      RestrictionRepository restrictionRepository,
+      PartnerTypeService partnerTypeService,
       RestrictionService restrictionService,
       RestrictionTypeService restrictionTypeService) {
+    this.partnerTypeService = partnerTypeService;
     this.restrictionService = restrictionService;
     this.restrictionTypeService = restrictionTypeService;
   }
 
   @Override
   public void run(String... args) throws Exception {
+    List<PartnerType> partnerTypes = new ArrayList<>();
+    partnerTypes.add(new PartnerType("Carrier"));
+    partnerTypes.add(new PartnerType("OTA"));
+    partnerTypeService.saveAll(partnerTypes);
+
     Restriction tripType = new Restriction("Trip Type");
     Restriction cabinType = new Restriction("Cabin Type");
     Restriction linkType = new Restriction("Link Type");

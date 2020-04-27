@@ -12,31 +12,25 @@
             <h2>Partner Restriction List</h2>
             <table class="table table-striped">
                 <tr>
-                    <th>Partner Restriction Id</th>
+                    <!--th>Partner Restriction Id</th-->
                     <th>Partner Name</th>
                     <th>Restriction Type Name</th>
                     <th colspan="4">Partner Restriction Value</th>
                 </tr>
                 <tr th:each="partnerRestriction : ${partnerRestrictions}">
-                    <td th:text="${partnerRestriction.partnerRestrictionId}"></td>
+                    <!--td th:text="${partnerRestriction.partnerRestrictionId}"></td-->
                     <td th:text="${partnerRestriction.partner.partnerName}"></td>
                     <td th:text="${partnerRestriction.restrictionType.restrictionTypeName}"></td>
                     <td th:text="${partnerRestriction.partnerRestrictionValue}"></td>
-                    <td><a th:href="${'/partnerrestriction/display/' + partnerRestriction.partnerRestrictionId}">View</a> </td>
-                    <td><a th:href="${'/partnerrestriction/edit/' + partnerRestriction.partnerRestrictionId}">Edit</a> </td>
-                    <td><a th:href="${'/partnerrestriction/remove/' + partnerRestriction.partnerRestrictionId}">Delete</a> </td>
+                    <td><a th:href="${'/partner_restriction/display/' + partnerRestriction.partnerRestrictionId}">View</a> </td>
+                    <td><a th:href="${'/partner_restriction/edit/' + partnerRestriction.partnerRestrictionId}">Edit</a> </td>
+                    <td><a th:href="${'/partner_restriction/remove/' + partnerRestriction.partnerRestrictionId}">Delete</a> </td>
                 </tr>
             </table>
         </div>
         <div class="row">
-            <div class="col-sm-3">
-                <a href="/partnerrestriction/add">Add Partner Restriction</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <a href="/">Back</a>
-            </div>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner_restriction/add';">Add</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/';">Cancel</button>
         </div>
 </div>
 </div>

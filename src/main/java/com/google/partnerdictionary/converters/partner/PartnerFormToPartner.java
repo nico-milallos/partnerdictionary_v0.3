@@ -17,6 +17,7 @@ public class PartnerFormToPartner implements Converter<PartnerForm, Partner> {
     }
     partner.setPartnerCode(partnerForm.getPartnerCode());
     partner.setPartnerName(partnerForm.getPartnerName());
+    partner.setPartnerType(partnerForm.getPartnerType());
     return partner;
   }
 }

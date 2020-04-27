@@ -10,26 +10,26 @@
     <div class="jumbotron">
         <div class="row">
             <div class="col-sm-6">
-                <h2>Display Restrictions</h2>
+                <h2>Display Partner Type</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-8">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Restriction Id:</label>
-                        <label class="form-control-static" th:text="${restriction.restrictionId}">Restriction Id</label>
+                        <label class="col-sm-4 control-label">Partner Type Id:</label>
+                        <label class="form-control-static" th:text="${partnerType.partnerTypeId}">Partner Type Id</label>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Restriction Name:</label>
-                        <label class="form-control-static" th:text="${restriction.restrictionName}">Restriction Name</label>
+                        <label class="col-sm-4 control-label">Partner Type Name:</label>
+                        <label class="form-control-static" th:text="${partnerType.partnerTypeName}">Partner Type Name</label>
                     </div>
                 </form>
             </div>
         </div>
         <div class="row">
-            <button class="btn btn-default" type="button" onclick="window.location='/restriction/add';">Add</button>
-            <button class="btn btn-default" type="button" onclick="window.location='/restriction/list';">Cancel</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner_type/add';">Add</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner_type/list';">Cancel</button>
         </div>
     </div>
 </div>

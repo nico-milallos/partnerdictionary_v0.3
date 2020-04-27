@@ -12,14 +12,16 @@
             <h2>Partner List</h2>
             <table class="table table-striped">
                 <tr>
-                    <th>Partner Id</th>
+                    <!--th>Partner Id</th-->
                     <th>Partner Code</th>
-                    <th colspan="4">Partner Name</th>
+                    <th>Partner Name</th>
+                    <th colspan="4">Partner Type</th>
                 </tr>
                 <tr th:each="partner : ${partners}">
-                    <td th:text="${partner.partnerId}"></td>
+                    <!--td th:text="${partner.partnerId}"></td-->
                     <td th:text="${partner.partnerCode}"></td>
                     <td th:text="${partner.partnerName}"></td>
+                    <td th:text="${partner.partnerType.partnerTypeName}"></td>
                     <td><a th:href="${'/partner/display/' + partner.partnerId}">View</a> </td>
                     <td><a th:href="${'/partner/edit/' + partner.partnerId}">Edit</a> </td>
                     <td><a th:href="${'/partner/remove/' + partner.partnerId}">Delete</a> </td>
@@ -27,14 +29,8 @@
             </table>
         </div>
         <div class="row">
-            <div class="col-sm-3">
-                <a href="/partner/add">Add Partner</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <a href="/">Back</a>
-            </div>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner/add';">Add</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/';">Cancel</button>
         </div>
     </div>
 </div>

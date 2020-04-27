@@ -44,7 +44,6 @@ public class RestrictionService implements MainService<Restriction, RestrictionF
   @Override
   public void delete(Integer id) {
     restrictionRepository.deleteById(id);
-
   }
 
   @Override

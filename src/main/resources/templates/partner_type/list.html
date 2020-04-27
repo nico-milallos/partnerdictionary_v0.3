@@ -8,24 +8,24 @@
 <body>
 <div layout:fragment="content" class="container">
     <div class="jumbotron">
-        <div th:if="${not #lists.isEmpty(restrictions)}">
+        <div th:if="${not #lists.isEmpty(partnerTypes)}">
             <h2>Restriction List</h2>
             <table class="table table-striped">
                 <tr>
                     <!--th>Restriction Id</th-->
                     <th colspan="4">Restriction Name</th>
                 </tr>
-                <tr th:each="restriction : ${restrictions}">
-                    <!--td th:text="${restriction.restrictionId}"></td-->
-                    <td th:text="${restriction.restrictionName}"></td>
-                    <td><a th:href="${'/restriction/display/' + restriction.restrictionId}">View</a> </td>
-                    <td><a th:href="${'/restriction/edit/' + restriction.restrictionId}">Edit</a> </td>
-                    <td><a th:href="${'/restriction/remove/' + restriction.restrictionId}">Delete</a> </td>
+                <tr th:each="partnerType : ${partnerTypes}">
+                    <!--td th:text="${partnerType.partnerTypeId}"></td-->
+                    <td th:text="${partnerType.partnerTypeName}"></td>
+                    <td><a th:href="${'/partner_type/display/' + partnerType.partnerTypeId}">View</a> </td>
+                    <td><a th:href="${'/partner_type/edit/' + partnerType.partnerTypeId}">Edit</a> </td>
+                    <td><a th:href="${'/partner_type/remove/' + partnerType.partnerTypeId}">Delete</a> </td>
                 </tr>
             </table>
         </div>
         <div class="row">
-            <button class="btn btn-default" type="button" onclick="window.location='/restriction/add';">Add</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/partner_type/add';">Add</button>
             <button class="btn btn-default" type="button" onclick="window.location='/';">Cancel</button>
         </div>
     </div>

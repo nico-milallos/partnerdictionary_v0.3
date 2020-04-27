@@ -1,11 +1,14 @@
 package com.google.partnerdictionary.models;
 
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,10 @@ public class Partner {
   private Integer partnerId;
   private String partnerCode;
   private String partnerName;
+
+  @ManyToOne(cascade = CascadeType.MERGE)
+  @JoinColumn(name = "partner_type_id", referencedColumnName = "partner_type_id")
+  private PartnerType partnerType;
 
   public Partner() {
   }
@@ -50,6 +57,14 @@ public class Partner {
 
   public void setPartnerName(String partnerName) {
     this.partnerName = partnerName;
+  }
+
+  public PartnerType getPartnerType() {
+    return partnerType;
+  }
+
+  public void setPartnerType(PartnerType partnerType) {
+    this.partnerType = partnerType;
   }
 
   @Override

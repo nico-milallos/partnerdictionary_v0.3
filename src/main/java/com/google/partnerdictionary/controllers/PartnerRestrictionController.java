@@ -16,7 +16,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
@@ -31,20 +30,20 @@ public class PartnerRestrictionController {
   @Autowired
   private PartnerRestrictionToPartnerRestrictionForm partnerRestrictionToPartnerRestrictionForm;
 
-  @RequestMapping({"/partnerrestriction/list","partnerrestriction"})
+  @RequestMapping({"/partner_restriction/list","partner_restriction"})
   public String getAllPartnerRestrictions(Model model) {
     model.addAttribute("partnerRestrictions", partnerRestrictionService.getAll());
     model.addAttribute("partnerRestrictionActive", "active");
-    return "partnerrestriction/list";
+    return "partner_restriction/list";
   }
 
-  @RequestMapping("/partnerrestriction/display/{partnerRestrictionId}")
+  @RequestMapping("/partner_restriction/display/{partnerRestrictionId}")
   public String getPartnerRestriction(@PathVariable Integer partnerRestrictionId, Model model) {
     model.addAttribute("partnerRestriction", partnerRestrictionService.getById(Integer.valueOf(partnerRestrictionId)));
-    return "partnerrestriction/display";
+    return "partner_restriction/display";
   }
 
-  @RequestMapping("partnerrestriction/edit/{partnerRestrictionId}")
+  @RequestMapping("partner_restriction/edit/{partnerRestrictionId}")
   public String updatepartnerRestriction(@PathVariable String partnerRestrictionId, Model model) {
     PartnerRestriction partnerRestriction = partnerRestrictionService.getById(Integer.valueOf(partnerRestrictionId));
     PartnerRestrictionForm partnerRestrictionForm = partnerRestrictionToPartnerRestrictionForm.convert(partnerRestriction);
@@ -52,31 +51,31 @@ public class PartnerRestrictionController {
     model.addAttribute("partners", partnerService.getAll());
     model.addAttribute("restrictionTypes", restrictionTypeService.getAll());
     model.addAttribute("partnerRestrictionForm", partnerRestrictionForm);
-    return "partnerrestriction/form";
+    return "partner_restriction/form";
   }
 
-  @RequestMapping("/partnerrestriction/add")
+  @RequestMapping("/partner_restriction/add")
   public String addRestrictionType(Model model) {
     model.addAttribute("partners", partnerService.getAll());
     model.addAttribute("restrictionTypes", restrictionTypeService.getAll());
     model.addAttribute("partnerRestrictionForm", new PartnerRestrictionForm());
-    return "partnerrestriction/form";
+    return "partner_restriction/form";
   }
 
-  @RequestMapping(value = "/partnerrestriction", method = RequestMethod.POST)
+  @RequestMapping(value = "/partner_restriction", method = RequestMethod.POST)
   public String saveOrUpdateRestrictionType(@Validated PartnerRestrictionForm partnerRestrictionForm, BindingResult bindingResult) {
     if(bindingResult.hasErrors()){
-      return "partnerrestriction/form";
+      return "partner_restriction/form";
     }
 
     PartnerRestriction savedPartnerRestriction = partnerRestrictionService.saveOrUpdateForm(partnerRestrictionForm);
 
-    return "redirect:/partnerrestriction/display/" + savedPartnerRestriction.getPartnerRestrictionId();
+    return "redirect:/partner_restriction/display/" + savedPartnerRestriction.getPartnerRestrictionId();
   }
 
-  @RequestMapping("/partnerrestriction/remove/{partnerRestrictionId}")
+  @RequestMapping("/partner_restriction/remove/{partnerRestrictionId}")
   public String deleteRestrictionType(@PathVariable String partnerRestrictionId) {
     partnerRestrictionService.delete(Integer.valueOf(partnerRestrictionId));
-    return "redirect:/partnerrestriction/list";
+    return "redirect:/partner_restriction/list";
   }
 }

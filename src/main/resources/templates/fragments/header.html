@@ -15,16 +15,15 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li th:class="${indexActive}"><a href="/">Home</a></li>
+          <li th:class="${partnerTypeActive}"><a href="/partner_type">Partner Type</a></li>
           <li th:class="${partnerActive}"><a href="/partner">Partner</a></li>
           <li th:class="${restrictionActive}"><a href="/restriction">Restriction</a></li>
-          <li th:class="${restrictionTypeActive}"><a href="/restrictiontype">Restriction Type</a></li>
-          <li th:class="${partnerRestrictionActive}"><a href="/partnerrestriction">Partner Restriction</a></li>
+          <li th:class="${restrictionTypeActive}"><a href="/restriction_type">Restriction Type</a></li>
+          <li th:class="${partnerRestrictionActive}"><a href="/partner_restriction">Partner Restriction</a></li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-          <li><a href="../navbar-static-top/">Static top</a></li>
-          <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          <li class="active"><a href="./">Login <span class="sr-only">(current)</span></a></li>
+          <li><a href="../navbar-fixed-top/">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

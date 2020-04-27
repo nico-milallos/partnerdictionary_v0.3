@@ -4,6 +4,7 @@ import com.google.partnerdictionary.converters.partner.PartnerToPartnerForm;
 import com.google.partnerdictionary.forms.PartnerForm;
 import com.google.partnerdictionary.services.PartnerService;
 import com.google.partnerdictionary.models.Partner;
+import com.google.partnerdictionary.services.PartnerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ public class PartnerController {
 
   @Autowired
   private PartnerService partnerService;
+  @Autowired
+  private PartnerTypeService partnerTypeService;
   @Autowired
   private PartnerToPartnerForm partnerToPartnerForm;
 
@@ -39,12 +42,14 @@ public class PartnerController {
     Partner partner = partnerService.getById(Integer.valueOf(partnerId));
     PartnerForm partnerForm = partnerToPartnerForm.convert(partner);
 
+    model.addAttribute("partnerTypes", partnerTypeService.getAll());
     model.addAttribute("partnerForm", partnerForm);
     return "partner/form";
   }
 
   @RequestMapping("/partner/add")
   public String addPartner(Model model) {
+    model.addAttribute("partnerTypes", partnerTypeService.getAll());
     model.addAttribute("partnerForm", new PartnerForm());
     return "partner/form";
   }

@@ -12,29 +12,23 @@
             <h2>Restriction Type List</h2>
             <table class="table table-striped">
                 <tr>
-                    <th>Restriction Id</th>
+                    <!--th>Restriction Id</th-->
                     <th>Restriction Name</th>
                     <th colspan="4">Restriction Type Name</th>
                 </tr>
                 <tr th:each="restrictionType : ${restrictionTypes}">
-                    <td th:text="${restrictionType.restrictionTypeId}"></td>
+                    <!--td th:text="${restrictionType.restrictionTypeId}"></td-->
                     <td th:text="${restrictionType.restriction.restrictionName}"></td>
                     <td th:text="${restrictionType.restrictionTypeName}"></td>
-                    <td><a th:href="${'/restrictiontype/display/' + restrictionType.restrictionTypeId}">View</a> </td>
-                    <td><a th:href="${'/restrictiontype/edit/' + restrictionType.restrictionTypeId}">Edit</a> </td>
-                    <td><a th:href="${'/restrictiontype/remove/' + restrictionType.restrictionTypeId}">Delete</a> </td>
+                    <td><a th:href="${'/restriction_type/display/' + restrictionType.restrictionTypeId}">View</a> </td>
+                    <td><a th:href="${'/restriction_type/edit/' + restrictionType.restrictionTypeId}">Edit</a> </td>
+                    <td><a th:href="${'/restriction_type/remove/' + restrictionType.restrictionTypeId}">Delete</a> </td>
                 </tr>
             </table>
         </div>
         <div class="row">
-            <div class="col-sm-3">
-                <a href="/restrictiontype/add">Add Restriction</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <a href="/">Back</a>
-            </div>
+            <button class="btn btn-default" type="button" onclick="window.location='/restriction_type/add';">Add</button>
+            <button class="btn btn-default" type="button" onclick="window.location='/';">Cancel</button>
         </div>
     </div>
 </div>
