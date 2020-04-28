@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Partner Dictionary v0.3</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Partner Details</p>
+            </div>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <tr>
+                    <th scope="col">Partner Code</th>
+                    <td th:text="${partner.partnerCode}"></td>
+                </tr>
+                <tr>
+                    <th scope="col">Partner Name</th>
+                    <td th:text="${partner.partnerName}"></td>
+                </tr>
+                <tr>
+                    <th scope="col">Partner Type</th>
+                    <td th:text="${partner.partnerType.partnerTypeName}"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Partner Restrictions</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Cabin Types</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="partnerRestriction : ${cabinTypes}">
+                                <td th:text="${partnerRestriction.restrictionType.restrictionTypeName}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Link Types</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="partnerRestriction : ${linkTypes}">
+                            <td th:text="${partnerRestriction.restrictionType.restrictionTypeName}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Trip Types</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="partnerRestriction : ${tripTypes}">
+                            <td th:text="${partnerRestriction.restrictionType.restrictionTypeName}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Restriction</th>
+                    <th scope="col">Restriction Type</th>
+                    <th scope="col">Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="partnerRestriction : ${otherRestrictions}">
+                    <td th:text="${partnerRestriction.restrictionType.restriction.restrictionName}"></td>
+                    <td th:text="${partnerRestriction.restrictionType.restrictionTypeName}"></td>
+                    <td th:text="${partnerRestriction.partnerRestrictionValue}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <button class="btn btn-default" type="button" onclick="window.location='/index';">Cancel</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

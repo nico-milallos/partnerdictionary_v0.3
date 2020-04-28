@@ -29,10 +29,11 @@ public class Partner {
   public Partner() {
   }
 
-  public Partner(Integer partnerId, String partnerCode, String partnerName) {
+  public Partner(String partnerCode, String partnerName, PartnerType partnerType) {
     super();
     this.partnerCode = partnerCode;
     this.partnerName = partnerName;
+    this.partnerType = partnerType;
   }
 
   public Integer getPartnerId() {

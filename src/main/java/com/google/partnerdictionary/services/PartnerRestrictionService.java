@@ -53,4 +53,20 @@ public class PartnerRestrictionService implements MainService<PartnerRestriction
     System.out.println("New Partner Restriction added with Id: " + savedPartnerRestriction.getPartnerRestrictionId());
     return savedPartnerRestriction;
   }
+
+  public List<PartnerRestriction> findCabinTypesByPartnerId(String partnerId) {
+    return partneRestrictionRepository.findCabinTypesByPartnerId(partnerId);
+  }
+
+  public List<PartnerRestriction> findLinkTypesByPartnerId(String partnerId) {
+    return partneRestrictionRepository.findLinkTypesByPartnerId(partnerId);
+  }
+
+  public List<PartnerRestriction> findTripTypesByPartnerId(String partnerId) {
+    return partneRestrictionRepository.findTripTypesByPartnerId(partnerId);
+  }
+
+  public List<PartnerRestriction> findOtherRestrictionsByPartnerId(String partnerId) {
+    return partneRestrictionRepository.findOtherRestrictionsByPartnerId(partnerId);
+  }
 }

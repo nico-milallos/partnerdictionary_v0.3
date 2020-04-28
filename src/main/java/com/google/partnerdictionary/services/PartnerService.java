@@ -22,10 +22,6 @@ public class PartnerService implements MainService<Partner, PartnerForm> {
     this.partnerFormToPartner = partnerFormToPartner;
   }
 
-  public List<Partner> findByKeyword(String keyword) {
-    return partnerRepository.findByKeyword(keyword);
-  }
-
   @Override
   public List<Partner> getAll() {
     List<Partner> partners = new ArrayList<>();
@@ -55,5 +51,13 @@ public class PartnerService implements MainService<Partner, PartnerForm> {
 
     System.out.println("New Partner added with Id: " + savedPartner.getPartnerId());
     return savedPartner;
+  }
+
+  public void saveAll(List<Partner> partners) {
+    partnerRepository.saveAll(partners);
+  }
+
+  public List<Partner> findByKeyword(String keyword) {
+    return partnerRepository.findByKeyword(keyword);
   }
 }
