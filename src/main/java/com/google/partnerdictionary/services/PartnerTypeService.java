@@ -2,6 +2,7 @@ package com.google.partnerdictionary.services;
 
 import com.google.partnerdictionary.converters.partnertype.PartnerTypeFormToPartnerType;
 import com.google.partnerdictionary.forms.PartnerTypeForm;
+import com.google.partnerdictionary.models.Partner;
 import com.google.partnerdictionary.models.PartnerType;
 import com.google.partnerdictionary.repositories.PartnerTypeRepository;
 import java.util.ArrayList;
@@ -56,5 +57,9 @@ public class PartnerTypeService implements MainService<PartnerType, PartnerTypeF
 
   public void saveAll(List<PartnerType> partnerTypes) {
     partnerTypeRepository.saveAll(partnerTypes);
+  }
+
+  public PartnerType getByName(String partnerTypeName) {
+    return partnerTypeRepository.findByPartnerTypeName(partnerTypeName);
   }
 }

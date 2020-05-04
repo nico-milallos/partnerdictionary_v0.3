@@ -69,4 +69,8 @@ public class PartnerRestrictionService implements MainService<PartnerRestriction
   public List<PartnerRestriction> findOtherRestrictionsByPartnerId(String partnerId) {
     return partneRestrictionRepository.findOtherRestrictionsByPartnerId(partnerId);
   }
+
+  public void saveAll(List<PartnerRestriction> partnerRestrictions) {
+    partneRestrictionRepository.saveAll(partnerRestrictions);
+  }
 }

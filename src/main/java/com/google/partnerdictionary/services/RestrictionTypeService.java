@@ -57,4 +57,8 @@ public class RestrictionTypeService implements MainService<RestrictionType, Rest
   public void saveAll(List<RestrictionType> restrictionTypes) {
     restrictionTypeRepository.saveAll(restrictionTypes);
   }
+
+  public RestrictionType getByRestrictionTypeName(String restrictionTypeName) {
+    return restrictionTypeRepository.findByRestrictionTypeName(restrictionTypeName);
+  }
 }

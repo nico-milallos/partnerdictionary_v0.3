@@ -4,7 +4,6 @@ import com.google.partnerdictionary.models.Partner;
 import com.google.partnerdictionary.models.PartnerType;
 import com.google.partnerdictionary.models.Restriction;
 import com.google.partnerdictionary.models.RestrictionType;
-import com.google.partnerdictionary.repositories.RestrictionRepository;
 import com.google.partnerdictionary.services.PartnerService;
 import com.google.partnerdictionary.services.PartnerTypeService;
 import com.google.partnerdictionary.services.RestrictionService;

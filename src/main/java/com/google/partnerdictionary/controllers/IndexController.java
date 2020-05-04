@@ -2,6 +2,9 @@ package com.google.partnerdictionary.controllers;
 
 import com.google.partnerdictionary.services.PartnerRestrictionService;
 import com.google.partnerdictionary.services.PartnerService;
+import com.google.partnerdictionary.upload.CSVFileReader;
+import com.google.partnerdictionary.upload.FileSaver;
+import java.io.FileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +36,7 @@ public class IndexController {
     model.addAttribute("indexActive", "active");
     model.addAttribute( "keyword", keyword);
     if(keyword != null) {
-      model.addAttribute("partners", partnerService.findByKeyword(keyword));
+      model.addAttribute("partners", partnerService.getByKeyword(keyword));
     } else {
       model.addAttribute("partners", partnerService.getAll());
     }
@@ -50,5 +53,4 @@ public class IndexController {
     model.addAttribute("otherRestrictions", partnerRestrictionService.findOtherRestrictionsByPartnerId(partnerId));
     return "/search/display";
   }
-
 }

@@ -29,8 +29,20 @@
             </table>
         </div>
         <div class="row">
-            <button class="btn btn-default" type="button" onclick="window.location='/partner_restriction/add';">Add</button>
-            <button class="btn btn-default" type="button" onclick="window.location='/';">Cancel</button>
+            <form class="form-horizontal" method="POST" action="/partner_restriction/upload" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-lg-4">
+                        <input class="form-control form-control-sm" type="file" name="file" />
+                    </div>
+                    <div class="form-group col-lg-1">
+                        <input class="btn btn-default" type="submit" value="Upload" />
+                    </div>
+                </div>
+            </form>
+            <div class="form-group col-lg-4">
+                <button class="btn btn-default" type="button" onclick="window.location='/partner_restriction/add';">Add</button>
+                <button class="btn btn-default" type="button" onclick="window.location='/';">Cancel</button>
+            </div>
         </div>
 </div>
 </div>

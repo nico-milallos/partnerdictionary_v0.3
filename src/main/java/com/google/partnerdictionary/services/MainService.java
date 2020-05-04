@@ -13,5 +13,4 @@ public interface MainService<T1, T2> {
   void delete(Integer id);
 
   T1 saveOrUpdateForm(T2 var);
-
 }

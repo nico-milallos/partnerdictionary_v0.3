@@ -1,6 +1,7 @@
 package com.google.partnerdictionary.models;
 
 import java.util.Objects;
+import java.util.Optional;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -67,5 +68,9 @@ public class PartnerType {
   @Override
   public int hashCode() {
     return Objects.hash(partnerTypeId);
+  }
+
+  public Optional orElse(Optional object) {
+    return object;
   }
 }

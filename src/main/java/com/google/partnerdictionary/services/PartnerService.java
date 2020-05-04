@@ -57,7 +57,11 @@ public class PartnerService implements MainService<Partner, PartnerForm> {
     partnerRepository.saveAll(partners);
   }
 
-  public List<Partner> findByKeyword(String keyword) {
+  public List<Partner> getByKeyword(String keyword) {
     return partnerRepository.findByKeyword(keyword);
+  }
+
+  public Partner getByPartnerCode(String partnerCode) {
+    return partnerRepository.findByPartnerCode(partnerCode);
   }
 }

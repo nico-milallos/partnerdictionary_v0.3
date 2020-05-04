@@ -57,4 +57,8 @@ public class RestrictionService implements MainService<Restriction, RestrictionF
   public void saveAll(List<Restriction> restrictions) {
     restrictionRepository.saveAll(restrictions);
   }
+
+  public Restriction getByName(String restrictionName) {
+    return restrictionRepository.findByRestrictionName(restrictionName);
+  }
 }

@@ -33,9 +33,8 @@ public class PartnerRestriction {
   public PartnerRestriction() {
   }
 
-  public PartnerRestriction(Integer partnerRestrictionId, String partnerRestrictionValue,
+  public PartnerRestriction(String partnerRestrictionValue,
       Partner partner, RestrictionType restrictionType) {
-    this.partnerRestrictionId = partnerRestrictionId;
     this.partnerRestrictionValue = partnerRestrictionValue;
     this.partner = partner;
     this.restrictionType = restrictionType;
