@@ -22,14 +22,18 @@ public class CSVFileReader {
   }
 
   public List<List<String>> getData() throws FileNotFoundException {
-
     String csvFile = csvFileDirectory;
     Scanner scanner = new Scanner(new File(csvFile));
     List<List<String>> parsedLines = new ArrayList<>();
     List<String> line;
 
+    boolean isFirst = true;
     while (scanner.hasNext()) {
       line = parseLine(scanner.nextLine());
+      if(isFirst) {
+        isFirst = false;
+        continue;
+      }
       parsedLines.add(line);
     }
     scanner.close();
